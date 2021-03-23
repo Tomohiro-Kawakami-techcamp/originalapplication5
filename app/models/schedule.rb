@@ -4,4 +4,5 @@ class Schedule < ApplicationRecord
 
   validates :title,  presence: true
   validates :content,  presence: true
+  validates :day,   presence: true
 end
