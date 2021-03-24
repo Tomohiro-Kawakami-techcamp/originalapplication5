@@ -8,13 +8,15 @@
   <table class = "detail-content">
      <tbody>
         <tr>
-          <th class="detail-title1">応募者名</th>
-          <th class="detail-title1">応募したサービス</th>
-          <th class="detail-title1">応募者メールアドレス</th>
+          <th class="detail-title1">登録者</th>
+          <th class="detail-title1">予定</th>
+          <th class="detail-title1">日付</th>
+          <th class="detail-title1"></th>
+          <th class="detail-title1"></th>
         </tr>
         <% @schedules.each do |schedule| %>
         <tr>
-          <td class="detail-value1"><%= link_to schedule.user.name, "#" %></td>
+          <td class="detail-value1"><%= schedule.user.name %></td>
           <td class="detail-value1"><%= link_to schedule.title, schedule_path(schedule.id) %></td>
           <td class="detail-value1"><%= schedule.day %></td>
           <td class="detail-value1"><%= link_to "編集する", edit_schedule_path(schedule.id) %></td>
