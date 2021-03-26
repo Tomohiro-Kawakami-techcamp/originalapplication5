@@ -1,2 +1,29 @@
 <h1 class = "schedules-edit">予定変更</h1>
 <%= link_to "戻る", root_path %>
+
+<%= form_with model: @schedule, local: true do |f| %>
+   <div>
+    <div>予定</div>
+  </div>
+     <%= f.text_area :title, class:"tasks-text1", id:"item-name", placeholder:"商品名（必須 40文字まで)", maxlength:"40" %>
+   <div>
+   <div>詳細</div>
+   </div>
+     <%= f.text_area :content, class:"tasks-text2", id:"item-info" ,rows:"7" ,maxlength:"1000" %>
+  <div class='input-birth-wrap'>
+      <%= raw sprintf(
+                  f.date_select(
+                    :day,
+                    class:'select-birth',
+                    id:"birth-date",
+                    use_month_numbers: true,
+                    prompt:'--',
+                    start_year: Time.now.year,
+                    end_year: (Time.now.year + 1),
+                    date_separator: '%s'),
+                  "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
+    </div>
+  <div>
+      <%= f.submit "決定する" ,class:"task-btn" %>
+  </div>
+<% end %>

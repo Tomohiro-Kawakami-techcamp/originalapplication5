@@ -1,6 +1,27 @@
 <h1 class = "schedules-show">予定詳細</h1>
 <%= link_to "戻る", root_path %>
 
+<div class = "schedule-table">
+  <table class = "detail-content">
+     <tbody>
+        <tr>
+          <th class="detail-title1">登録者</th>
+          <th class="detail-title1">予定</th>
+          <th class="detail-title1">詳細</th>
+          <th class="detail-title1">日付</th>
+        </tr>
+        <%= form_with model: @schedule,local: true do |f|%>
+        <tr>
+          <td class="detail-value1"><%= @schedule.user.name %></td>
+          <td class="detail-value1"><%= @schedule.title %></td>
+          <td class="detail-value1"><%= @schedule.content %></td>
+          <td class="detail-value1"><%= @schedule.day %></td>
+        </tr>
+        <% end %>
+      </tbody>
+   </table>
+</div>
+
  <% if user_signed_in? %>
   <%= form_with model: [@schedule,@comment],local: true do |f|%>
     <div class="field">
